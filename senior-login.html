@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHARA | Senior Login</title>
+    <link rel="stylesheet" href="senior-login.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+
+        <div class="login-container">
+
+            <!-- LOGO INSIDE FORM -->
+            <div class="form-logo">
+                <img src="imgages/orange-logo.png" alt="SAHARA Logo">
+            </div>
+
+            <p class="tagline">Helping you, always.</p>
+
+            <h2>Senior Citizen Login</h2>
+
+            <!-- PHONE NUMBER -->
+            <label>Mobile Number</label>
+            <div class="phone-input">
+                <span>+91</span>
+                <input type="tel" placeholder="Enter your mobile number" maxlength="10">
+            </div>
+
+            <button class="otp-btn" onclick="goToDetails()">Get OTP</button>
+
+
+            <!-- OTP SECTION -->
+            <div class="otp-section">
+                <label>Enter OTP</label>
+                <input type="text" placeholder="Enter 6-digit OTP" maxlength="6">
+                <button class="verify-btn" onclick="verifyOTP()">Verify & Continue</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function goToDetails() {
+            // Simulate OTP sent
+            document.querySelector(".otp-section").classList.add("active");
+        }
+
+        function verifyOTP(){
+            window.location.href = "emergency-details.html";
+        }
+    </script>
+
+
+</body>
+
+</html>

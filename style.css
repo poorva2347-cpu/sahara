@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOP SECTION */
+.top-section {
+    height: 50vh;
+    background: url("img/unnamed.png") center/cover no-repeat;
+    position: relative;
+}
+
+.overlay {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.overlay h1 {
+    margin-top: 18vh;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.overlay p {
+    font-size: 20px;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* BOTTOM SECTION */
+.bottom-section {       /* little more breathing space */
+    background: #f2f2f2;          /* softer, cleaner gray */
+    padding: 60px 20px 80px;      /* more vertical comfort */
+    display: flex;
+    justify-content: center;
+}
+
+.main-section {
+    background: #f2f2f2;   /* full gray area */
+    padding: 80px 0;       /* space above & below cards */
+    height: 50vh;
+}
+
+
+/* LOGIN CARDS */
+.login-cards {
+    display: flex;
+    gap: 30px;
+    margin-top: -40px; /* pulls cards upward */
+}
+
+/* COMMON CARD */
+.card {
+    width: 420px;
+    padding: 40px 30px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+    background: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.card p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* BUTTON */
+.card button {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* VOLUNTEER THEME */
+.volunteer {
+    background: #eaf3ff;
+    border-top: 6px solid #1e88e5;
+}
+
+.volunteer button {
+    background: #1e88e5;
+}
+
+/* SENIOR THEME */
+.senior {
+    background: #fff3e0;
+    border-top: 6px solid #fb8c00;
+}
+
+.senior button {
+    background: #fb8c00;
+}
+
+.card button:hover {
+    opacity: 0.9;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    .top-section {
+        height: 30vh;
+    }
+
+    .overlay h1 {
+        font-size: 34px;
+    }
+
+    .overlay p {
+        font-size: 16px;
+    }
+
+    .overlay h1 {
+    margin-top: 3vh;
+    font-size: 30px;
+}
+
+    .login-cards {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 0;
+    }
+
+    .card {
+        width: 100%;
+        padding: 35px 25px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+    }
+
+    .card p {
+        font-size: 17px;
+    }
+
+    .card button {
+        width: 100%;
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .overlay{
+        padding: 50px;
+    }
+
+    .bottom-section {
+    padding: 0px 20px 80px;
+
+}
+}
+
+/* HEADER */
+.header {
+    position: absolute;      /* sits over hero section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo img {
+    margin-top: 4vh;
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .logo img {
+        margin-top: 1vh;
+        height: 64px;
+    }
+}
+

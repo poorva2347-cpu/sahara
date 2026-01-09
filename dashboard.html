@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHARA | Senior Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <img src="imgages/orange-logo.png" alt="SAHARA Logo">
+        </div>
+        
+        <div class="profile-btn" onclick="toggleProfile()">👤 Profile</div>
+
+    </header>
+
+
+    <!-- PROFILE ASIDE -->
+    <aside class="profile-aside" id="profileAside">
+
+        <div class="aside-header">
+            <span class="close" onclick="toggleProfile()">✕</span>
+            <h2>My Profile</h2>
+        </div>
+
+        <div class="aside-body">
+
+            <div class="profile-card">
+                <p class="name">Ramesh Sharma</p>
+                <p class="age">Age: 68</p>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Emergency Contacts</h3>
+                <p>📞 Son – 9876543210</p>
+                <p>📞 Daughter – 9123456789</p>
+                <p>📞 Neighbor – 9001122334</p>
+            </div>
+
+
+            <!-- UPDATE BUTTON -->
+            <div class="aside-action">
+                <button class="update-btn" onclick="openEmergencyModal()">
+                    ✏️ Update Details
+                </button>
+                
+            </div>
+
+        </div>
+
+        </div>
+        <!-- LOGOUT SECTION -->
+        <div class="aside-footer">
+            <button class="logout-btn">
+                🚪 Logout
+            </button>
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- TAGLINE SECTION -->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <h1>Because Every Senior Deserves Support</h1>
+            <p>
+                Help, care, and safety—just one tap away.
+            </p>
+        </div>
+    </section>
+
+    <!-- ACTION BUTTONS -->
+    <section class="action-section">
+
+        <div class="action-buttons">
+            <button class="help-btn" onclick="goToRequestHelp()">
+                Request Help
+            </button>
+
+            <button class="sos-btn">
+                Emergency SOS
+            </button>
+        </div>
+
+    </section>
+
+    <!-- EMERGENCY EDIT MODAL -->
+<div class="modal-overlay" id="emergencyModal">
+
+    <div class="modal-box">
+
+        <h3>Update Emergency Contacts</h3>
+
+        <div id="modalContacts">
+
+            <div class="contact-row">
+                <input type="tel" value="9876543210">
+                <input type="text" value="Son">
+                <button onclick="removeContact(this)">Remove</button>
+            </div>
+
+            <div class="contact-row">
+                <input type="tel" value="9123456789">
+                <input type="text" value="Daughter">
+                <button onclick="removeContact(this)">Remove</button>
+            </div>
+
+        </div>
+
+        <button class="add-btn" onclick="addModalContact()">+ Add Contact</button>
+
+        <div class="modal-actions">
+            <button class="cancel-btn" onclick="closeEmergencyModal()">Cancel</button>
+            <button class="save-btn" onclick="saveEmergencyContacts()">Save</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- EMERGENCY EDIT MODAL -->
+<div class="modal-overlay" id="emergencyModal">
+
+    <div class="modal-box">
+
+        <h3>Update Emergency Contacts</h3>
+
+        <div id="modalContacts">
+
+            <div class="contact-row">
+                <input type="tel" value="9876543210">
+                <input type="text" value="Son">
+                <button onclick="removeContact(this)">Remove</button>
+            </div>
+
+            <div class="contact-row">
+                <input type="tel" value="9123456789">
+                <input type="text" value="Daughter">
+                <button onclick="removeContact(this)">Remove</button>
+            </div>
+
+        </div>
+
+        <button class="add-btn" onclick="addModalContact()">+ Add Contact</button>
+
+        <div class="modal-actions">
+            <button class="cancel-btn" onclick="closeEmergencyModal()">Cancel</button>
+            <button class="save-btn" onclick="saveEmergencyContacts()">Save</button>
+        </div>
+
+    </div>
+
+</div>
+
+    <script>
+        function toggleProfile() {
+            document.getElementById("profileAside").classList.toggle("active");
+        }
+        function goToRequestHelp() {
+        window.location.href = "request-help.html";
+    }
+    </script>
+
+</body>
+
+</html>

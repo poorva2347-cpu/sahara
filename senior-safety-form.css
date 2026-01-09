@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #fffaf5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* FORM WRAPPER */
+.form-wrapper {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 540px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+/* STEP INDICATOR */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.step {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffe0b2;
+    color: #fb8c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step.active {
+    background: #fb8c00;
+    color: #ffffff;
+}
+
+/* FORM STEPS */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* HEADINGS */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 500;
+    color: #444;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #fb8c00;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    gap: 12px;
+}
+
+/* TOGGLE ROW */
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+/* TOGGLE SWITCH */
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    background: #ccc;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+    background: #fb8c00;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+/* MEDICAL SECTION DISABLED */
+.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* CHECKBOX GROUP */
+.checkbox-group label {
+    display: block;
+    margin: 6px 0;
+    color: #444;
+}
+
+/* CONTACTS */
+.contact-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-row button {
+    background: none;
+    border: none;
+    color: #d32f2f;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+.next-btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    background: #1976d2;
+    color: #ffffff;
+}
+
+.submit-btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    background: #fb8c00;
+    color: #ffffff;
+}
+
+/* ADD CONTACT */
+.add-btn {
+    background: #fff3e0;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+    color: #fb8c00;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .contact-row {
+        flex-direction: column;
+    }
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    min-height: 90px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #fb8c00;
+}
+
+/* TOGGLE GREEN */
+.switch input:checked + .slider {
+    background: #4caf50; /* GREEN for YES */
+}
+
+/* CHECKBOX GROUP */
+.checkbox-group {
+    margin-top: 10px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.check-item input {
+    width: 18px;
+    height: 18px;
+}
+
+.check-item span {
+    font-size: 16px;
+    color: #444;
+}

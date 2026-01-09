@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHARA | Senior Citizen Assistance Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="imgages/Untitled-1_White.png" alt="SAHARA Logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- TOP SECTION -->
+        <div class="top-section">
+            <div class="overlay">
+                <h1>Because Every Senior Deserves Support.</h1>
+                <p>Connecting caring volunteers with seniors who need a helping hand.</p>
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION -->
+        <section class="main-section">
+
+
+            <div class="bottom-section">
+
+                <div class="login-cards">
+
+                    <!-- SENIOR CARD -->
+                    <div class="card senior">
+                        <h3>Are you a Senior Citizen?</h3>
+                        <p>Get help for daily needs, medical support, and emergency assistance.</p>
+                        <button onclick="goSeniorLogin()">Register as Senior</button>
+                    </div>
+
+                    <!-- VOLUNTEER CARD -->
+                    <div class="card volunteer">
+                        <h3>Are you a Volunteer?</h3>
+                        <p>Serve society by supporting senior citizens with care and compassion.</p>
+                        <button>Register as Volunteer</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script>
+        function goSeniorLogin() {
+            window.location.href = "senior-login.html";
+        }
+
+        function goVolunteerLogin() {
+            window.location.href = "volunteer-login.html";
+        }
+    </script>
+
+</body>
+
+</html>

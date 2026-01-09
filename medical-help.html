@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHARA | Medicine Delivery</title>
+    <link rel="stylesheet" href="medical-help.css">
+</head>
+
+<body>
+
+    <header class="header">
+                <div class="logo">
+            <img src="imgages/orange-logo.png" alt="SAHARA Logo">
+        </div>
+
+        <div class="header-actions">
+            <button class="sos-header-btn">🚨 SOS</button>
+            <div class="profile-btn" onclick="toggleProfile()">👤 Profile</div>
+        </div>
+    </header>
+
+
+    <!-- PROFILE ASIDE -->
+    <aside class="profile-aside" id="profileAside">
+
+        <div class="aside-header">
+            <span class="close" onclick="toggleProfile()">✕</span>
+            <h2>My Profile</h2>
+        </div>
+
+        <div class="aside-body">
+
+            <div class="profile-card">
+                <p class="name">Ramesh Sharma</p>
+                <p class="age">Age: 68</p>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Emergency Contacts</h3>
+                <p>📞 Son – 9876543210</p>
+                <p>📞 Daughter – 9123456789</p>
+                <p>📞 Neighbor – 9001122334</p>
+            </div>
+
+            <!-- UPDATE BUTTON -->
+            <div class="aside-action">
+                <button class="update-btn">
+                    ✏️ Update Details
+                </button>
+            </div>
+        </div>
+
+        <!-- LOGOUT SECTION -->
+        <div class="aside-footer">
+            <button class="logout-btn">
+                🚪 Logout
+            </button>
+        </div>
+    </aside>
+
+
+    <!-- PAGE TITLE -->
+    <section class="page-title">
+        <h1>Medicine Delivery</h1>
+        <p>Upload your prescription and we’ll deliver it to your doorstep.</p>
+    </section>
+
+    <!-- UPLOAD FORM -->
+    <section class="upload-section">
+        <form id="prescriptionForm">
+
+            <!-- File Upload -->
+            <label for="prescription" class="upload-btn">
+                📄 Upload Prescription
+            </label>
+            <input type="file" id="prescription" name="prescription" accept=".jpg,.jpeg,.png,.pdf" hidden>
+
+            <!-- Show uploaded file name -->
+            <p id="fileName" class="file-name">No file selected</p>
+
+            <!-- Submit -->
+            <button type="submit" class="request-btn">Request Medicine Delivery</button>
+        </form>
+    </section>
+
+    <script>
+        // Show file name after upload
+        const prescriptionInput = document.getElementById("prescription");
+        const fileName = document.getElementById("fileName");
+        function toggleProfile() {
+            document.getElementById("profileAside").classList.toggle("active");
+        }
+
+        prescriptionInput.addEventListener("change", function () {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+            } else {
+                fileName.textContent = "No file selected";
+            }
+        });
+
+        // Handle form submit
+        const form = document.getElementById("prescriptionForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Prescription uploaded! Request sent successfully.");
+            // Here API integration will handle the request
+        });
+    </script>
+
+</body>
+
+</html>

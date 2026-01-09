@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHARA | Safety Form</title>
+    <link rel="stylesheet" href="senior-safety-form.css">
+</head>
+
+<body>
+
+    <div class="form-wrapper">
+
+        <!-- STEP INDICATOR -->
+        <div class="steps">
+            <div class="step active">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+        </div>
+
+        <!-- STEP 1 : PERSONAL DETAILS -->
+        <div class="form-step active">
+
+            <h2>Personal Details</h2>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter full name">
+
+            <div class="row">
+                <div>
+                    <label>Age</label>
+                    <input type="number" placeholder="Age">
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>Mobile Number</label>
+            <input type="tel" value="+91 9876543210" readonly>
+
+            <button class="next-btn" onclick="nextStep()">Save & Continue</button>
+        </div>
+
+        <!-- STEP 2 : MEDICAL DETAILS -->
+        <div class="form-step">
+
+            <h2>Medical Information</h2>
+
+            <!-- TOGGLE -->
+            <div class="toggle-row">
+                <span>Are you currently on medication?</span>
+                <label class="switch">
+                    <input type="checkbox" id="medToggle" onchange="toggleMedical()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- MEDICAL FIELDS -->
+            <div id="medicalFields" class="disabled">
+
+                <label>Current Medicines / Health Notes</label>
+                <textarea placeholder="Write medicine names or any health information (optional)"></textarea>
+
+                <label>Blood Group</label>
+                <select>
+                    <option>Select</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                </select>
+
+                <label>Chronic Conditions</label>
+                <div class="checkbox-group">
+                    <div class="check-item">
+                        <input type="checkbox"> <span>Diabetes</span>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox"> <span>High Blood Pressure</span>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox"> <span>Heart Condition</span>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox"> <span>Asthma</span>
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox"> <span>Other</span>
+                    </div>
+                </div>
+
+                <label>Doctor Contact Number</label>
+                <input type="tel" placeholder="Doctor's phone number">
+
+                <label>Preferred Hospital</label>
+                <input type="text" placeholder="Hospital name">
+
+            </div>
+
+            <button class="next-btn" onclick="nextStep()">Save & Continue</button>
+        </div>
+
+
+        <!-- STEP 3 : EMERGENCY CONTACTS -->
+        <div class="form-step">
+
+            <h2>Emergency Contacts</h2>
+
+            <div id="contacts">
+                <div class="contact-row">
+                    <input type="tel" placeholder="Contact number">
+                    <input type="text" placeholder="Relation">
+                </div>
+            </div>
+
+            <button class="add-btn" onclick="addContact()">+ Add Contact</button>
+            <button type="button" class="submit-btn" onclick="submitForm()">Submit Details</button>
+            <script>
+                let currentStep = 0;
+                const steps = document.querySelectorAll(".form-step");
+                const indicators = document.querySelectorAll(".step");
+
+                function nextStep() {
+                    if (currentStep < steps.length - 1) {
+                        steps[currentStep].classList.remove("active");
+                        indicators[currentStep].classList.remove("active");
+
+                        currentStep++;
+                        steps[currentStep].classList.add("active");
+                        indicators[currentStep].classList.add("active");
+                    }
+                }
+
+                function toggleMedical() {
+                    const fields = document.getElementById("medicalFields");
+                    fields.classList.toggle("disabled");
+                }
+
+                function addContact() {
+                    const div = document.createElement("div");
+                    div.className = "contact-row removable";
+                    div.innerHTML = `
+        <input type="tel" placeholder="Contact number">
+        <input type="text" placeholder="Relation">
+        <button onclick="this.parentElement.remove()">Remove</button>
+    `;
+                    document.getElementById("contacts").appendChild(div);
+                }
+
+                /* 🔗 FINAL CONNECT FUNCTION */
+                function submitForm() {
+                    alert("Details saved successfully!");
+                    window.location.href = "dashboard.html";
+                }
+                function openEmergencyModal() {
+            document.getElementById("emergencyModal").classList.add("active");
+        }
+
+        function closeEmergencyModal() {
+            document.getElementById("emergencyModal").classList.remove("active");
+        }
+
+        function addModalContact() {
+            const div = document.createElement("div");
+            div.className = "contact-row";
+            div.innerHTML = `
+        <input type="tel" placeholder="Contact number">
+        <input type="text" placeholder="Relation">
+        <button onclick="removeContact(this)">Remove</button>
+    `;
+            document.getElementById("modalContacts").appendChild(div);
+        }
+
+        function removeContact(btn) {
+            btn.parentElement.remove();
+        }
+
+        function saveEmergencyContacts() {
+            const modalContacts = document.querySelectorAll("#modalContacts .contact-row");
+            const emergencyCard = document.querySelector(".emergency-card");
+
+            emergencyCard.innerHTML = "<h3>Emergency Contacts</h3>";
+
+            modalContacts.forEach(row => {
+                const phone = row.children[0].value;
+                const relation = row.children[1].value;
+                emergencyCard.innerHTML += `<p>📞 ${relation} – ${phone}</p>`;
+            });
+
+            closeEmergencyModal();
+        }
+
+            </script>
+
+
+</body>
+
+</html>
